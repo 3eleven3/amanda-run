@@ -123,7 +123,8 @@
         .event-details {
             background: var(--glass);
             backdrop-filter: blur(10px);
-            padding: 2.5rem;
+            padding-inline: 2.5rem;
+            padding-block: 1.5rem;
             border-radius: 24px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
             max-width: 600px;
@@ -394,8 +395,8 @@
             display: flex;
             align-items: center;
             gap: 1.5rem;
-            margin: 1.5rem 0;
             font-size: 1.2rem;
+            margin-bottom: 1.2rem;
         }
 
         .detail-icon {
@@ -430,9 +431,12 @@
 <body>
     <div class="hero">
         <div class="hero-content">
-            <h3 class="celebrate">CELEBRATING AMANDA'S 37TH</h3>
-            <h1 class="big-title">THE 37mi CHALLENGE</h1>
-            <p class="tagline">10 LAPS • 3.7 MILES EACH</p>
+            <h3 class="celebrate">Amanda Slater's Birthday</h3>
+            <h1 class="big-title">37mi CHALLENGE</h1>
+            <div class="tagline">
+                <div>10 LAPS • 3.7 MILES EACH</div>
+                <div>A random loop every lap</div>
+            </div>
             <div class="event-details">
                 <div class="detail-item">
                     <div class="detail-icon">📍</div>
@@ -443,7 +447,7 @@
 
                     </div>
                 </div>
-                <p>
+                <p style="font-size: 1rem;">
                     Food, drinks, snacks, gells, and BBQ provided!
                 </p>
             </div>
