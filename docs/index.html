@@ -54,14 +54,19 @@
             width: 200%;
             height: 200%;
             background: radial-gradient(circle at center, rgba(255, 107, 53, 0.15) 0%, transparent 50%),
-                        radial-gradient(circle at 20% 30%, rgba(110, 193, 255, 0.1) 0%, transparent 40%);
+                radial-gradient(circle at 20% 30%, rgba(110, 193, 255, 0.1) 0%, transparent 40%);
             animation: rotate 20s linear infinite;
             z-index: 0;
         }
 
         @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
         }
 
         .hero-content {
@@ -99,7 +104,9 @@
         }
 
         @keyframes shine {
-            to { background-position: 300% center; }
+            to {
+                background-position: 300% center;
+            }
         }
 
         .tagline {
@@ -127,18 +134,39 @@
         }
 
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @keyframes scaleIn {
-            from { opacity: 0; transform: scale(0.9); }
-            to { opacity: 1; transform: scale(1); }
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
 
         .cta {
@@ -203,7 +231,7 @@
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 1px solid rgba(0,0,0,0.05);
+            border: 1px solid rgba(0, 0, 0, 0.05);
             position: relative;
         }
 
@@ -239,16 +267,45 @@
             transform: rotate(5deg) scale(1.1);
         }
 
-        .badge.c1 { background: #FF6B35; }
-        .badge.c2 { background: #6EC1FF; }
-        .badge.c3 { background: #9AE6B4; }
-        .badge.c4 { background: #FFD23F; }
-        .badge.c5 { background: #CDA6FF; }
-        .badge.c6 { background: #FF9E80; }
-        .badge.c7 { background: #4FD1C5; }
-        .badge.c8 { background: #F687B3; }
-        .badge.c9 { background: #63B3ED; }
-        .badge.c10 { background: #F6AD55; }
+        .badge.c1 {
+            background: #FF6B35;
+        }
+
+        .badge.c2 {
+            background: #6EC1FF;
+        }
+
+        .badge.c3 {
+            background: #9AE6B4;
+        }
+
+        .badge.c4 {
+            background: #FFD23F;
+        }
+
+        .badge.c5 {
+            background: #CDA6FF;
+        }
+
+        .badge.c6 {
+            background: #FF9E80;
+        }
+
+        .badge.c7 {
+            background: #4FD1C5;
+        }
+
+        .badge.c8 {
+            background: #F687B3;
+        }
+
+        .badge.c9 {
+            background: #63B3ED;
+        }
+
+        .badge.c10 {
+            background: #F6AD55;
+        }
 
         .route-header h3 {
             font-family: 'Bebas Neue', sans-serif;
@@ -312,14 +369,25 @@
             font-weight: 400;
             text-transform: uppercase;
             letter-spacing: 3px;
-            color: rgba(255,255,255,0.7);
+            color: rgba(255, 255, 255, 0.7);
         }
 
         @media (max-width: 768px) {
-            .big-title { font-size: 4rem; }
-            .section-title { font-size: 3rem; }
-            .challenge-stats { gap: 2rem; }
-            .stat-number { font-size: 3.5rem; }
+            .big-title {
+                font-size: 4rem;
+            }
+
+            .section-title {
+                font-size: 3rem;
+            }
+
+            .challenge-stats {
+                gap: 2rem;
+            }
+
+            .stat-number {
+                font-size: 3.5rem;
+            }
         }
 
         .detail-item {
@@ -346,7 +414,7 @@
 
         footer {
             background: #000;
-            color: rgba(255,255,255,0.5);
+            color: rgba(255, 255, 255, 0.5);
             text-align: center;
             padding: 4rem 2rem;
             font-size: 0.9rem;
@@ -368,7 +436,8 @@
             <div class="event-details">
                 <div class="detail-item">
                     <div class="detail-icon">📍</div>
-                    <div style="text-align: left;"><strong>Forsyth Park HQ</strong><br>Saturday, March 15th — 9:00 AM</div>
+                    <div style="text-align: left;"><strong>Forsyth Park HQ</strong><br>Saturday, March 15th — 9:00 AM
+                    </div>
                 </div>
 
                 <div style="text-align:center; margin-top:2rem;">
@@ -384,12 +453,11 @@
             <div class="route-card">
                 <div class="route-header">
                     <div class="badge c1">1</div>
-                    <h3>Kingston Loop North</h3>
+                    <h3>TEST</h3>
                 </div>
                 <div class="route-content">
                     <div class="route-iframe">
-                        <iframe
-                            src="https://www.viewgpx.com/route/UWpqT4hm" allowfullscreen="" loading="lazy">
+                        <iframe src="https://www.viewgpx.com/route/UWpqT4hm" allowfullscreen="" loading="lazy">
                         </iframe>
                     </div>
                 </div>
@@ -420,15 +488,15 @@
         document.getElementById('randomize').addEventListener('click', () => {
             const cards = document.querySelectorAll('.route-card');
             const randomCard = cards[Math.floor(Math.random() * cards.length)];
-            
+
             // Scroll to the card
             randomCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            
+
             // Add a highlight animation
             cards.forEach(c => c.style.borderColor = 'rgba(0,0,0,0.05)');
             randomCard.style.borderColor = '#FF6B35';
             randomCard.style.transform = 'scale(1.05) translateY(-15px)';
-            
+
             // Confetti effect
             confetti({
                 particleCount: 150,
@@ -438,8 +506,8 @@
             });
 
             // GSAP pulse
-            gsap.fromTo(randomCard, 
-                { scale: 1.05 }, 
+            gsap.fromTo(randomCard,
+                { scale: 1.05 },
                 { scale: 1.1, duration: 0.2, yoyo: true, repeat: 1, ease: "power2.out" }
             );
         });
