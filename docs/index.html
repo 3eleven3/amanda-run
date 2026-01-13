@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amanda's 37th Birthday Run Challenge</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* --primary: #FFFFFF; */
+            /* --secondary: #F7F7F8; */
+            --accent: #FF6B35;
+            --dark: #1A1A1D;
+            --light: #FFF8F0;
+            --gray: #4E4E50;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            background: var(--light);
+        }
+
+        .hero {
+            background: linear-gradient(180deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--dark);
+            padding: 5rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Subtle hero background blobs and motion to mimic Replit preview */
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: -10% -15%;
+            background: radial-gradient(circle at 20% 20%, rgba(110, 193, 255, 0.12), transparent 12%), radial-gradient(circle at 80% 80%, rgba(205, 166, 255, 0.10), transparent 12%);
+            z-index: 0;
+            animation: float 12s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) translateX(0);
+            }
+
+            50% {
+                transform: translateY(-8px) translateX(6px);
+            }
+
+            100% {
+                transform: translateY(0) translateX(0);
+            }
+        }
+
+        /* Small label uses a cool accent color */
+        .hero-clean .celebrate {
+            font-size: 0.95rem;
+            letter-spacing: 2px;
+            color: #6EC1FF;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        /* Badge and header animations */
+        .badge {
+            transition: transform 0.35s cubic-bezier(.2, .8, .2, 1), box-shadow 0.3s;
+        }
+
+        .route-card:hover .badge {
+            transform: translateY(-4px) scale(1.06) rotate(-6deg);
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .big-title {
+            background: linear-gradient(90deg, #6EC1FF 0%, #CDA6FF 50%, #FFD23F 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: title-glow 6s ease-in-out infinite;
+        }
+
+        @keyframes title-glow {
+            0% {
+                filter: hue-rotate(0deg)
+            }
+
+            50% {
+                filter: hue-rotate(25deg)
+            }
+
+            100% {
+                filter: hue-rotate(0deg)
+            }
+        }
+
+        .big-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 6.5rem;
+            letter-spacing: 2px;
+            margin-bottom: 0.25rem;
+            line-height: 1;
+            color: var(--dark);
+            text-transform: uppercase;
+        }
+
+        .tagline {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--gray);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .birthday-number {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin: 0.4rem 0 1rem;
+            display: block;
+        }
+
+        .event-details h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.8rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .cta {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 0.9rem 1.2rem;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            letter-spacing: 1px;
+            margin-top: 0.5rem;
+        }
+
+        .route-card.highlight {
+            transform: scale(1.02) translateY(-6px);
+            box-shadow: 0 20px 50px rgba(255, 107, 53, 0.35);
+            border: 3px solid rgba(255, 107, 53, 0.16);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 5rem;
+            letter-spacing: 4px;
+            margin-bottom: 1rem;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+        }
+
+        .event-details {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            max-width: 700px;
+            margin: 2rem auto 0;
+        }
+
+        .event-details h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 1rem 0;
+            font-size: 1.1rem;
+        }
+
+        .detail-icon {
+            background: linear-gradient(135deg, var(--accent), #FF9E80);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3.5rem;
+            text-align: center;
+            color: var(--primary);
+            margin-bottom: 3rem;
+            letter-spacing: 3px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            margin: 1rem auto 0;
+            border-radius: 5px;
+        }
+
+        .map-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            margin-bottom: 3rem;
+        }
+
+        .map-container h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+            letter-spacing: 2px;
+        }
+
+        .map-wrapper {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        iframe {
+            width: 100%;
+            height: 450px;
+            border: none;
+            display: block;
+        }
+
+        .routes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .route-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .route-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.3);
+        }
+
+        .route-header {
+            background: transparent;
+            color: var(--dark);
+            padding: 1.5rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .route-header h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            letter-spacing: 2px;
+        }
+
+        .route-number {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .badge {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            color: white;
+            font-size: 1.15rem;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+        }
+
+        .badge.c1 {
+            background: #FF6B35;
+        }
+
+        .badge.c2 {
+            background: #6EC1FF;
+            color: #1A1A1D;
+        }
+
+        .badge.c3 {
+            background: #9AE6B4;
+            color: #1A1A1D;
+        }
+
+        .badge.c4 {
+            background: #FFD23F;
+            color: #1A1A1D;
+        }
+
+        .badge.c5 {
+            background: #CDA6FF;
+            color: #1A1A1D;
+        }
+
+        .badge.c6 {
+            background: #FF6B35;
+        }
+
+        .badge.c7 {
+            background: #6EC1FF;
+            color: #1A1A1D;
+        }
+
+        .badge.c8 {
+            background: #9AE6B4;
+            color: #1A1A1D;
+        }
+
+        .badge.c9 {
+            background: #FFD23F;
+            color: #1A1A1D;
+        }
+
+        .badge.c10 {
+            background: #CDA6FF;
+            color: #1A1A1D;
+        }
+
+        .route-content {
+            padding: 1.5rem;
+        }
+
+        .route-iframe {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .route-iframe iframe {
+            height: 300px;
+        }
+
+        .challenge-section {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--gray) 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .challenge-section h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3.5rem;
+            letter-spacing: 3px;
+            margin-bottom: 2rem;
+        }
+
+        .challenge-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 4rem;
+            color: var(--accent);
+            display: block;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .stat-label {
+            font-size: 1.2rem;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+
+            .big-title,
+            h1 {
+                font-size: 3rem;
+            }
+
+            .birthday-number {
+                font-size: 1.4rem;
+            }
+
+            .tagline {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .routes-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .challenge-stats {
+                gap: 2rem;
+            }
+        }
+    </style>
+    <!-- Animation & confetti libs (CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+</head>
+
+<body>
+    <div class="hero hero-clean">
+        <div class="hero-content">
+            <h3 class="celebrate">CELEBRATING AMANDA'S 37TH</h3>
+            <h1 class="big-title">THE 37mi CHALLENGE</h1>
+            <p class="tagline">10 LAPS. 3.7 MILES.</p>
+            <div class="event-details">
+                <h3>BASE CAMP</h3>
+                <div class="detail-item">
+                    <div class="detail-icon">📍</div>
+                    <div><strong>Forsyth Park HQ</strong><br>Saturday, March 15th — 9:00 AM</div>
+                </div>
+
+                <div style="text-align:center; margin-top:1rem;">
+                    <button id="randomize" class="cta">PICK MY NEXT LOOP</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="map-container">
+            <h3>Forsyth Park, Kingston, NY</h3>
+        </div>
+        <h2 class="section-title">THE LOOP MENU</h2>
+        <p style="text-align: center; font-size: 1.2rem; margin-bottom: 2rem; color: var(--gray);">
+            Each of these 10 loops is exactly 3.7 miles. Routes will be randomly selected on event day!
+        </p>
+
+        <div class="routes-grid">
+            <div class="route-card">
+                <div class="route-header">
+                    <div class="route-number"><span class="badge c1">1</span></div>
+                    <h3>Kingston Loop North</h3>
+                </div>
+                <div class="route-content">
+                    <div class="route-iframe">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2996.0817842377787!2d-73.99667492348795!3d41.92700607121726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89dd3d6b13d4e8e9%3A0x5e5b7c8a8f4e5e5e!2sForsyth%20Park%2C%20Kingston%2C%20NY%2012401!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
+                            allowfullscreen="" loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="route-card">
+                <div class="route-header">
+                    <div class="route-number"><span class="badge c2">2</span></div>
+                    <h3>Riverside Trail</h3>
+                </div>
+                <div class="route-content">
+                    <div class="route-iframe">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2996.0817842377787!2d-73.99667492348795!3d41.92700607121726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89dd3d6b13d4e8e9%3A0x5e5b7c8a8f4e5e5e!2sForsyth%20Park%2C%20Kingston%2C%20NY%2012401!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
+                            allowfullscreen="" loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="route-card">
+                <div class="route-header">
+                    <div class="route-number"><span class="badge c3">3</span></div>
+                    <h3>Historic District</h3>
+                </div>
+                <div class="route-content">
+                    <div class="route-iframe">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2996.0817842377787!2d-73.99667492348795!3d41.92700607121726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89dd3d6b13d4e8e9%3A0x5e5b7c8a8f4e5e5e!2sForsyth%20Park%2C%20Kingston%2C%20NY%2012401!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
+                            allowfullscreen="" loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="route-card">
+                <div class="route-header">
+                    <div class="route-number"><span class="badge c4">4</span></div>
+                    <h3>Midtown Circuit</h3>
+                </div>
+                <div class="route-content">
+                    <div class="route-iframe">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2996.0817842377787!2d-73.99667492348795!3d41.92700607121726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89dd3d6b13d4e8e9%3A0x5e5b7c8a8f4e5e5e!2sForsyth%20Park%2C%20Kingston%2C%20NY%2012401!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
+                            allowfullscreen="" loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="route-card">
+                <div class="route-header">
+                    <div class="route-number"><span class="badge c5">5</span></div>
+                    <h3>Woodland Path</h3>
+                </div>
+                <div class="route-content">
+                    <div class="route-iframe">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2996.0817842377787!2d-73.99667492348795!3d41.92700607121726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89dd3d6b13d4e8e9%3A0x5e5b7c8a8f4e5e5e!2sForsyth%20Park%2C%20Kingston%2C%20NY%2012401!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
+                            allowfullscreen="" loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="route-card">
+                <div class="route-header">
+                    <div class="route-number"><span class="badge c6">6</span></div>
+                    <h3>East Side Explorer</h3>
+                </div>
+                <div class="route-content">
+                    <div class="route-iframe">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2996.0817842377787!2d-73.99667492348795!3d41.92700607121726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89dd3d6b13d4e8e9%3A0x5e5b7c8a8f4e5e5e!2sForsyth%20Park%2C%20Kingston%2C%20NY%2012401!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
+                            allowfullscreen="" loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="route-card">
+                <div class="route-header">
+                    <div class="route-number"><span class="badge c7">7</span></div>
+                    <h3>Broadway Sprint</h3>
+                </div>
+                <div class="route-content">
+                    <div class="route-iframe">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2996.0817842377787!2d-73.99667492348795!3d41.92700607121726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89dd3d6b13d4e8e9%3A0x5e5b7c8a8f4e5e5e!2sForsyth%20Park%2C%20Kingston%2C%20NY%2012401!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
+                            allowfullscreen="" loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="route-card">
+                <div class="route-header">
+                    <div class="route-number"><span class="badge c8">8</span></div>
+                    <h3>Hillside Challenge</h3>
+                </div>
+                <div class="route-content">
+                    <div class="route-iframe">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2996.0817842377787!2d-73.99667492348795!3d41.92700607121726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89dd3d6b13d4e8e9%3A0x5e5b7c8a8f4e5e5e!2sForsyth%20Park%2C%20Kingston%2C%20NY%2012401!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
+                            allowfullscreen="" loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="route-card">
+                <div class="route-header">
+                    <div class="route-number"><span class="badge c9">9</span></div>
+                    <h3>Waterfront Way</h3>
+                </div>
+                <div class="route-content">
+                    <div class="route-iframe">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2996.0817842377787!2d-73.99667492348795!3d41.92700607121726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89dd3d6b13d4e8e9%3A0x5e5b7c8a8f4e5e5e!2sForsyth%20Park%2C%20Kingston%2C%20NY%2012401!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
+                            allowfullscreen="" loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="route-card">
+                <div class="route-header">
+                    <div class="route-number"><span class="badge c10">10</span></div>
+                    <h3>Kingston Grand Loop</h3>
+                </div>
+                <div class="route-content">
+                    <div class="route-iframe">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2996.0817842377787!2d-73.99667492348795!3d41.92700607121726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89dd3d6b13d4e8e9%3A0x5e5b7c8a8f4e5e5e!2sForsyth%20Park%2C%20Kingston%2C%20NY%2012401!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
+                            allowfullscreen="" loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="challenge-section">
+        <h2>HAPPY 37TH AMANDA!</h2>
+        <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto;">
+            Made with sweat, code, and runner's high — pick a loop and let's go!
+        </p>
+        <div class="challenge-stats">
+            <div class="stat">
+                <span class="stat-number">10</span>
+                <span class="stat-label">Loops</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">3.7</span>
+                <span class="stat-label">Miles Each</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">37</span>
+                <span class="stat-label">Total Miles</span>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Amanda's 37th Birthday Run Challenge | Kingston, NY</p>
+    </footer>
+
+    <script>
+        (function () {
+            function burstConfetti() {
+                if (typeof confetti === 'function') {
+                    confetti({ particleCount: 120, spread: 90, startVelocity: 30, origin: { y: 0.2 }, colors: ['#FF6B35', '#6EC1FF', '#9AE6B4', '#FFD23F', '#CDA6FF'] });
+                    confetti({ particleCount: 80, spread: 160, startVelocity: 20, origin: { y: 0.15 }, colors: ['#FF6B35', '#6EC1FF', '#9AE6B4', '#FFD23F', '#CDA6FF'] });
+                }
+            }
+
+            // entrance animations with GSAP
+            if (typeof gsap !== 'undefined') {
+                gsap.from('.big-title', { y: -24, opacity: 0, duration: 1.1, ease: 'power3.out' });
+                gsap.from('.tagline', { y: -8, opacity: 0, duration: 0.9, delay: 0.15 });
+                gsap.from('.badge', { y: -12, opacity: 0, duration: 0.8, stagger: 0.05, delay: 0.2, ease: 'back.out(1.4)' });
+            }
+
+            const btn = document.getElementById('randomize');
+            if (!btn) return;
+            btn.addEventListener('click', function () {
+                const routes = Array.from(document.querySelectorAll('.routes-grid .route-card'));
+                if (!routes.length) return;
+                routes.forEach(r => r.classList.remove('highlight'));
+                const idx = Math.floor(Math.random() * routes.length);
+                const sel = routes[idx];
+                sel.classList.add('highlight');
+                sel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                if (typeof gsap !== 'undefined') {
+                    gsap.fromTo(sel, { scale: 0.98 }, { scale: 1.04, duration: 0.45, yoyo: true, repeat: 1, ease: 'power1.inOut' });
+                    gsap.fromTo(sel.querySelector('.badge'), { scale: .85, rotation: -12 }, { scale: 1.12, rotation: 0, duration: 0.7, ease: 'elastic.out(1,0.6)' });
+                }
+                burstConfetti();
+                setTimeout(() => sel.classList.remove('highlight'), 3500);
+            });
+
+            window.addEventListener('load', function () { setTimeout(() => burstConfetti(), 600); });
+        })();
+    </script>
+</body>
+
+</html>
