@@ -222,9 +222,14 @@
 
         .routes-grid {
             display: grid;
-            /* 2 columns */
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr;
             gap: 2.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .routes-grid {
+                grid-template-columns: 1fr 1fr;
+            }
         }
 
         .route-card {
