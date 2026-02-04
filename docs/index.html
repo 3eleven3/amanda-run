@@ -429,10 +429,6 @@
             letter-spacing: 1px;
         }
     </style>
-    <!-- Animation & confetti libs (CDN) -->
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
 </head>
 
 <body>
@@ -572,23 +568,6 @@
             </div>
         </div>
     </div>
-
-    <script>
-        gsap.registerPlugin(ScrollTrigger);
-
-        // Entrance animations
-        gsap.from(".route-card", {
-            duration: 0.8,
-            y: 50,
-            opacity: 0,
-            stagger: 0.1,
-            ease: "power3.out",
-            scrollTrigger: {
-                trigger: ".routes-grid",
-                start: "top 1%"
-            }
-        });
-    </script>
 </body>
 
 </html>
