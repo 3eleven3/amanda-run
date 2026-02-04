@@ -271,6 +271,7 @@
         }
 
         .route-card:hover .badge {
+            /* rotate randomly */
             transform: rotate(5deg) scale(1.1);
         }
 
@@ -440,8 +441,7 @@
             <h3 class="celebrate">Amanda Slater's Birthday</h3>
             <h1 class="big-title">37 mile CHALLENGE</h1>
             <div class="tagline">
-                <div>10 LAPS • 3.7 MILES EACH</div>
-                <div>Each lap a random loop</div>
+                <div>10x RANDOM SELECTED 3.7 MILE LOOPS</div>
             </div>
             <div class="event-details">
                 <div class="detail-item">
@@ -449,17 +449,24 @@
                     <div style="text-align: left;">
                         <strong>Forsyth Park HQ</strong>
                         <br>
-                        <i>Saturday, March 21st — 9:00 AM</i>
+                        <i>Saturday, March 14th — 8 AM start</i>
                     </div>
                 </div>
                 <p style="font-size: 1rem; text-align: left;">
-                    Come join for as many or as few loops as you'd like to help Amanda celebrate her 37th birthday!
+                    Amanda is turning 37 and what better way to celebrate than with an ultra-marathon challenge!
                     <br />
                     <br />
-                    Food, drinks, snacks, gels, and BBQ provided at Forsyth Park HQ.
+                    We're doing 10 loops, each 3.7 miles long, come join for as many or as few loops as you'd like.
                     <br />
                     <br />
-                    All paces welcome.
+                    At the start of each loop, a random route will be selected for the group using a die from the 6
+                    available routes below.
+                    <br />
+                    <br />
+                    All paces welcome. The next lap won't start till we're all back at HQ.
+                    <br />
+                    <br />
+                    Additionally, food, drinks, snacks, gels, and BBQ provided at Forsyth Park HQ.
                 </p>
             </div>
         </div>
@@ -523,6 +530,19 @@
             <div class="route-card">
                 <div class="route-header">
                     <div class="badge c1">5</div>
+                    <h3>Boice Brothers</h3>
+                </div>
+                <div class="route-content">
+                    <div class="route-iframe">
+                        <iframe src="https://www.gaiagps.com/public/zAt4WkmdgzBHkNioKP6Y6L03/?embed=True"
+                            style="border:none; overflow-y: hidden; background-color:white; min-width: 320px; max-width:800px; width:100%; height: 420px;"
+                            seamless></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="route-card">
+                <div class="route-header">
+                    <div class="badge c1">6</div>
                     <h3>The hilly one</h3>
                 </div>
                 <div class="route-content">
@@ -555,33 +575,6 @@
 
     <script>
         gsap.registerPlugin(ScrollTrigger);
-
-        document.getElementById('randomize').addEventListener('click', () => {
-            const cards = document.querySelectorAll('.route-card');
-            const randomCard = cards[Math.floor(Math.random() * cards.length)];
-
-            // Scroll to the card
-            randomCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-            // Add a highlight animation
-            cards.forEach(c => c.style.borderColor = 'rgba(0,0,0,0.05)');
-            randomCard.style.borderColor = '#FF6B35';
-            randomCard.style.transform = 'scale(1.05) translateY(-15px)';
-
-            // Confetti effect
-            confetti({
-                particleCount: 150,
-                spread: 70,
-                origin: { y: 0.6 },
-                colors: ['#FF6B35', '#FF9E80', '#6EC1FF', '#CDA6FF']
-            });
-
-            // GSAP pulse
-            gsap.fromTo(randomCard,
-                { scale: 1.05 },
-                { scale: 1.1, duration: 0.2, yoyo: true, repeat: 1, ease: "power2.out" }
-            );
-        });
 
         // Entrance animations
         gsap.from(".route-card", {
